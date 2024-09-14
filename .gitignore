@@ -149,3 +149,6 @@ $RECYCLE.BIN/
 # Xcode
 *.xcworkspace
 *.xcodeproj
+
+/ESP8266
+/venv
