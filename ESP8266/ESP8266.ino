@@ -1,17 +1,93 @@
 #include <Adafruit_MPU6050.h>
 #include <Adafruit_Sensor.h>
 #include <Wire.h>
+#include <ESP8266HTTPClient.h>
+#include <WiFiClient.h>
+#include <ESP8266WiFi.h>
+#include <user_interface.h>
+#include "credentials.h"  // Include the credentials file
+
+extern "C" {
+#include "user_interface.h"
+#include "wpa2_enterprise.h"
+#include "c_types.h"
+}
+
+
+
+const char* api_endpoint = "https://api.convex.dev/your_endpoint";
 
 Adafruit_MPU6050 mpu;
 
+void sendData(String json_data) {
+  if (WiFi.status() == WL_CONNECTED) {
+    HTTPClient http;
+    WiFiClient client;
+
+    http.begin(client, api_endpoint);
+    http.addHeader("Content-Type", "application/json");
+    http.addHeader("Authorization", "Bearer " + String(api_key));
+
+    int httpCode = http.POST(json_data);  // Send the POST request
+
+    if (httpCode > 0) {
+      String response = http.getString();  // Get the response
+      Serial.println(httpCode);
+      Serial.println(response);
+    } else {
+      Serial.println("Error sending POST request");
+    }
+
+    http.end();  // End the connection
+  } else {
+    Serial.println("WiFi Disconnected");
+  }
+}
+
+
 void setup(void) {
-  Serial.begin(115200);
+  Serial.begin(115200); // Serial setup
   while (!Serial)
     delay(10); // will pause Zero, Leonardo, etc until serial console opens
 
-  Serial.println("Adafruit MPU6050 test!");
 
-  // Try to initialize!
+
+  // Initialize the ESP WiFi with WPA2 Enterprise settings
+  Serial.println();
+  Serial.println("Connecting to eduroam...");
+  
+  WiFi.disconnect(true);  // Disconnect from any previous connections
+  
+  // Set WPA2-Enterprise connection
+  wifi_set_opmode(STATION_MODE);
+  struct station_config wifi_config;
+  memset(&wifi_config, 0, sizeof(wifi_config));
+  strcpy((char*)wifi_config.ssid, ssid);
+  wifi_station_set_config(&wifi_config);
+  
+  // Set the username and password for eduroam
+  wifi_station_clear_cert_key();
+  wifi_station_clear_enterprise_ca_cert();
+  wifi_station_set_wpa2_enterprise_auth(1);
+  wifi_station_set_enterprise_identity((uint8*)username, strlen(username));
+  wifi_station_set_enterprise_username((uint8*)username, strlen(username));
+  wifi_station_set_enterprise_password((uint8*)password, strlen(password));
+
+  // Connect to eduroam
+  WiFi.begin();
+
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+
+  Serial.println("");
+  Serial.println("WiFi connected");
+  Serial.println("IP address: ");
+  Serial.println(WiFi.localIP());
+
+
+  // Try to initialize MPU6050!
   if (!mpu.begin()) {
     Serial.println("Failed to find MPU6050 chip");
     while (1) {
@@ -84,7 +160,16 @@ void setup(void) {
 }
 
 void loop() {
-  /* Get new sensor events with the readings */
+
+  // ECG Sensor Data
+  int sensorValue = analogRead(A0);  // Read the analog value from the ECG sensor
+  float voltage = sensorValue * (3.3 / 1023.0);  // Convert the value to voltage
+  
+  Serial.print("ECG Signal Voltage: ");
+  Serial.println(voltage);
+
+
+  /* MPU6050 Sensor data */
   sensors_event_t a, g, temp;
   mpu.getEvent(&a, &g, &temp);
 
@@ -104,5 +189,9 @@ void loop() {
   // Serial.println(" degC");
 
   Serial.println("");
-  delay(100);
+  
+  String json_data = "{\"data\": {\"accel\": " + String(accel_rms, 2) + ",\"gyro\": " +  String(rotation_rms, 2) + ",\"ECG\": " + String(voltage, 2) + " }}"; // Replace with the actual data you want to send
+  Serial.println(json_data);
+  sendData(json_data); // Send data to the API
+  delay(10000);
 }
