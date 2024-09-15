@@ -2,11 +2,11 @@
 #include <Adafruit_Sensor.h>
 #include <Wire.h>
 #include <ESP8266HTTPClient.h>
-#include <WiFiClient.h>
+#include <WiFiClientSecureBearSSL.h>
 #include <ESP8266WiFi.h>
 #include <user_interface.h>
 #include "credentials.h"  // Include the credentials file
-
+#include <ArduinoJson.h>
 extern "C" {
 #include "user_interface.h"
 #include "wpa2_enterprise.h"
@@ -15,30 +15,63 @@ extern "C" {
 
 
 
-const char* api_endpoint = "https://api.convex.dev/your_endpoint";
-
+const char* api_endpoint = "https://beloved-penguin-979.convex.site/storeData";
+const char* test_url = "https://www.google.com"; 
 Adafruit_MPU6050 mpu;
-
-void sendData(String json_data) {
+StaticJsonDocument<200> doc;
+bool checkInternet() {
   if (WiFi.status() == WL_CONNECTED) {
-    HTTPClient http;
-    WiFiClient client;
+    std::unique_ptr<BearSSL::WiFiClientSecure>client(new BearSSL::WiFiClientSecure);
 
-    http.begin(client, api_endpoint);
-    http.addHeader("Content-Type", "application/json");
-    http.addHeader("Authorization", "Bearer " + String(api_key));
-
-    int httpCode = http.POST(json_data);  // Send the POST request
+    // Ignore SSL certificate validation
+    client->setInsecure();
+    
+    //create an HTTPClient instance
+    HTTPClient https;
+    https.begin(*client, test_url);
+    int httpCode = https.GET(); // Send the GET request
 
     if (httpCode > 0) {
-      String response = http.getString();  // Get the response
+      Serial.println("Internet connection successful.");
+      https.end();
+      return true;
+    } else {
+      Serial.println("Failed to connect to the internet.");
+    }
+
+    https.end();
+  } else {
+    Serial.println("WiFi not connected.");
+  }
+  return false;
+}
+void sendData(String json_data) {
+  if (WiFi.status() == WL_CONNECTED) {
+    std::unique_ptr<BearSSL::WiFiClientSecure>client(new BearSSL::WiFiClientSecure);
+
+    // Ignore SSL certificate validation
+    client->setInsecure();
+    
+    //create an HTTPClient instance
+    HTTPClient https;
+
+    https.begin(*client, api_endpoint);
+    https.addHeader("Content-Type", "application/json");
+    // http.addHeader("Authorization", "Bearer " + String(api_key));
+    https.setTimeout(10000); // Set timeout to 10 seconds (10000 milliseconds)
+    Serial.println(json_data);
+    int httpCode = https.POST(json_data);  // Send the POST request
+
+    if (httpCode > 0) {
+      String response = https.getString();  // Get the response
       Serial.println(httpCode);
       Serial.println(response);
     } else {
-      Serial.println("Error sending POST request");
+      Serial.print(httpCode);
+      Serial.println(" Error sending POST request");
     }
 
-    http.end();  // End the connection
+    https.end();  // End the connection
   } else {
     Serial.println("WiFi Disconnected");
   }
@@ -66,8 +99,8 @@ void setup(void) {
   wifi_station_set_config(&wifi_config);
   
   // Set the username and password for eduroam
-  wifi_station_clear_cert_key();
-  wifi_station_clear_enterprise_ca_cert();
+  // wifi_station_clear_cert_key();
+  // wifi_station_clear_enterprise_ca_cert();
   wifi_station_set_wpa2_enterprise_auth(1);
   wifi_station_set_enterprise_identity((uint8*)username, strlen(username));
   wifi_station_set_enterprise_username((uint8*)username, strlen(username));
@@ -189,9 +222,13 @@ void loop() {
   // Serial.println(" degC");
 
   Serial.println("");
-  
-  String json_data = "{\"data\": {\"accel\": " + String(accel_rms, 2) + ",\"gyro\": " +  String(rotation_rms, 2) + ",\"ECG\": " + String(voltage, 2) + " }}"; // Replace with the actual data you want to send
-  Serial.println(json_data);
-  sendData(json_data); // Send data to the API
-  delay(10000);
+  doc["accel"] = accel_rms;
+  doc["gyro"] = rotation_rms;
+  doc["ECG"] = voltage;
+  String output;
+  serializeJson(doc, output);
+  Serial.println(output);
+  Serial.println(checkInternet());
+  sendData(output); // Send data to the API
+  delay(500);
 }
