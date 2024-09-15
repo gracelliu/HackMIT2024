@@ -1,16 +1,33 @@
 import { mutation } from "./_generated/server";
-import { v } from "convex/values"; // Import the Convex validator
+import { v } from "convex/values";
 
 export const storeData = mutation({
   args: {
-    jsonData: v.object({
-      // Define the structure of your JSON data
-      key1: v.number(),
-      key2: v.number(),
-      key3: v.number(),
-    }),
+    accel: v.number(),
+    gyro: v.number(),
+    ECG: v.number(),
   },
-  handler: async ({ db }, { jsonData }) => {
-    await db.insert("data", jsonData);
+  handler: async (ctx, { accel, gyro, ECG }) => {
+    await ctx.db.insert("sensorData", { accel, gyro, ECG });
+  },
+});
+
+export const storeHeartBeat = mutation({
+  args: {
+    timestamp: v.string(),
+    bpm: v.number(),
+    context: v.number(),
+    timer_duration_seconds: v.optional(v.number()),
+  },
+  handler: async (
+    { db },
+    { timestamp, bpm, context, timer_duration_seconds }
+  ) => {
+    await db.insert("heartRateData", {
+      timestamp,
+      bpm,
+      context,
+      timer_duration_seconds,
+    });
   },
 });
