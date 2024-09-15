@@ -15,7 +15,7 @@ extern "C" {
 
 
 
-const char* api_endpoint = "https://beloved-penguin-979.convex.site/storeData";
+const char* api_endpoint = "https://smee.io/ndZloBWBaaS7E1hO";
 const char* test_url = "https://www.google.com"; 
 Adafruit_MPU6050 mpu;
 StaticJsonDocument<200> doc;
