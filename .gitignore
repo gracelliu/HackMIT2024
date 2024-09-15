@@ -1,1 +1,154 @@
-/my-app/node_modules
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+.venv/
+.env.local
+
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Logs and crash reports
+*.log
+*.out
+*.err
+
+# Compiled source code
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg
+*.egg-info/
+dist/
+build/
+*.pyo
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+
+# C++
+*.obj
+*.exe
+*.out
+
+# Node.js
+node_modules/
+npm-debug.log
+
+# JavaScript
+*.js.map
+
+# Package managers
+# Pnpm
+.pnpm-debug.log
+
+# yarn
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+
+# Ruby
+*.gem
+*.rbc
+.bundle/
+log/*
+tmp/
+db/*.sqlite3
+db/*.sqlite3-journal
+public/system/*
+.byebug_history
+
+# Rust
+/target/
+
+# Go
+bin/
+*.exe
+
+# PHP
+vendor/
+
+# C#
+*.dll
+*.exe
+*.pdb
+*.mdb
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# IDEs and editors
+# JetBrains
+.idea/
+*.iml
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# Sublime Text
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+
+# Emacs
+*~
+\#*\#
+
+# Visual Studio
+.vs/
+
+# Xcode
+*.xcworkspace
+*.xcodeproj
+
+/ESP8266
+/venv
