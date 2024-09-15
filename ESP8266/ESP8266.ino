@@ -65,7 +65,7 @@ void sendData(String json_data) {
     if (httpCode > 0) {
       String response = https.getString();  // Get the response
       Serial.println(httpCode);
-      Serial.println(response);
+      digitalWrite(BUILTIN_LED, LOW); // Indicate wifi is connected
     } else {
       Serial.print(httpCode);
       Serial.println(" Error sending POST request");
@@ -79,6 +79,8 @@ void sendData(String json_data) {
 
 
 void setup(void) {
+  pinMode(BUILTIN_LED, OUTPUT);
+  digitalWrite(BUILTIN_LED, HIGH); 
   Serial.begin(115200); // Serial setup
   while (!Serial)
     delay(10); // will pause Zero, Leonardo, etc until serial console opens
@@ -120,6 +122,7 @@ void setup(void) {
   Serial.println(WiFi.localIP());
 
 
+  
   // Try to initialize MPU6050!
   if (!mpu.begin()) {
     Serial.println("Failed to find MPU6050 chip");
@@ -230,5 +233,5 @@ void loop() {
   Serial.println(output);
   Serial.println(checkInternet());
   sendData(output); // Send data to the API
-  delay(500);
+  delay(400);
 }
