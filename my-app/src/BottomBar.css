@@ -4,12 +4,21 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: #333;
+    background-color: #FFFFFF;
     display: flex;
     justify-content: space-around;
+    align-items: center;
     padding: 10px 0;
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
     z-index: 1000;
+}
+
+.bottom-nav:active  {
+    background-color: #FFFFFF;
+}
+
+.bottom-icon:active {
+    background-color: #FFFFFF;
 }
 
 .nav-item {

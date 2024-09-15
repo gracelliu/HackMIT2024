@@ -6,9 +6,10 @@ import './BottomBar.css';
 const BottomBar = () => {
     return (
         <div className="bottom-nav">
-            <Link to="/" className="nav-item">Home</Link>
-            <Link to="/about" className="nav-item">About</Link>
-            <Link to="/contact" className="nav-item">Contact</Link>
+            <Link to="/" className="nav-item" className="bottom-icon"><img src="src/assets/Home.png"/></Link>
+            <Link to="/about" className="nav-item"><img src="src/assets/Chart.png"/></Link>
+            <Link to="/contact" className="nav-item"><img src="src/assets/Play.png"/></Link>
+            <Link to="/contact" className="nav-item"><img src="src/assets/Profile.png"/></Link>
         </div>
     );
 };
