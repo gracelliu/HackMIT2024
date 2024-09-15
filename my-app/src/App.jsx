@@ -4,10 +4,10 @@ import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import ErrorBoundary from './ErrorBoundary.jsx';
 import EntryPage from './Pages/EntryPage.jsx';
-import Live from './Pages/Live.jsx';
-import Help from './Pages/Help.jsx';
+import Stats from './Pages/Stats.jsx';
+import Chatbot from './Pages/Chatbot.jsx';
+import Calendar from './Pages/Calendar.jsx';
 import BottomBar from './BottomBar.jsx';
-// import MenuAppBar from './MenuAppBar.jsx';
 import './App.css';
 
 function App() {
@@ -16,12 +16,12 @@ function App() {
     <div style={{
       width: '100%'
     }}>
-      {/* <MenuAppBar /> */}
       <BottomBar />
       <Routes>
         <Route path="/" element={<EntryPage />} />
-        <Route path="/Live" element={<Live />} />
-        <Route path="/Help" element={<Help />} />
+        <Route path="/stats" element={<Stats />} />
+        <Route path="/calendar" element={<Calendar />} />
+        <Route path="/chatbot" element={<Chatbot />} />
       </Routes>
     </div>
 

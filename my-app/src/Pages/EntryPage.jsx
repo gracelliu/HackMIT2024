@@ -8,26 +8,37 @@ function EntryPage() {
   const [stress, setStress] = useState(0)
   return (
     <div style={{ display: 'flex', flexDirection: 'column', backgroundColor: '#FFFFFF', borderColor: "#FFFFFF", minHeight: '100vh', width: '100%', margin: '0', alignItems: "start", justifyContent: 'start' }}>
-      <div>
+      <div style={{ alignSelf: 'center', justifyContent: 'center', display: 'flex', flexDirection: 'row' }}>
         {/* <SideBar></SideBar> */}
-        <div style={{ color: '#58315A', fontFamily: 'sans-serif', fontSize: '30pt', marginTop: '20px' }}>StressLess</div>
+
+        <img style={{ marginTop: '20px', height: '30px', justifySelf: 'center', alignSelf: 'center' }} src="src/assets/smiley.png" />
+        <div style={{ marginTop: '20px', color: '#58315A', fontFamily: 'sans-serif', fontSize: '30pt', marginLeft: '20px' }}>StressLess</div>
       </div>
 
-      <h3 style={{ color: '#58315A', marginBottom: '-10px', justifySelf: "start" }}>
+      <h3 style={{ color: '#58315A', justifySelf: "start" }}>
         Overview for today
       </h3>
 
       <img src="src/assets/stress_graph.png" style={{
-        width: '350px', height: '220px'
+        width: '350px', height: '210px'
       }} />
 
-      <h3 style={{ color: '#58315A' }}>
+      <h3 style={{ color: '#58315A', marginTop: '40px', marginBottom: '-35px' }}>
         Stress Index
       </h3>
 
+      <div style={{ alignSelf: 'center', justifySelf: 'start' }}>
+        <div style={{ color: '#000000', fontSize: '70pt', zIndex: "3", marginTop: '20px'}}>
+          {stress}
+        </div>
+        {/* <div id="box" style={{ zIndex: '1', backgroundColor: "#FF0380", width: '1000px', height: '100px', left: "0px", bottom:"470px", position: 'absolute' }}>
+        </div> */}
+      </div>
+
+
       <div style={{
         backgroundColor: '#FFEDC1', maxWidth: "350px", display: 'flex', alignItems: 'center', justifyContent: 'space-around',
-        borderRadius: '30px', margin: "10px, 10px, -100px, 10px", padding: "10px", color: 'white'
+        borderRadius: '30px', margin: "10px, 0px, 0px, 10px", padding: "10px", color: 'white'
       }}>
         <div style={{ color: '#000000', marginLeft: '20px' }}>
           <p>
@@ -41,20 +52,9 @@ function EntryPage() {
         setStress(stress + 1)
       }}>press</button>  */}
 
-      <div style={{
-        alignSelf:
-          'center'
-      }}>
-        <div style={{ color: "#FF0000" }}>
-
-          <p style={{ color: '#000000', fontSize: '80pt' }}>
-            {stress}
-          </p>
-        </div>
-      </div>
 
 
-    </div>
+    </div >
     // <MyLineChart></MyLineChart>
   );
 }
