@@ -1,0 +1,237 @@
+[
+    {
+      "timestamp": "2024-09-14T22:44:45.849849",
+      "bpm": 63,
+      "context": 0,
+      "timer_duration_seconds": null
+    },
+    {
+      "timestamp": "2024-09-14T22:46:29.849849",
+      "bpm": 70,
+      "context": 0,
+      "timer_duration_seconds": null
+    },
+    {
+      "timestamp": "2024-09-14T22:49:03.849849",
+      "bpm": 66,
+      "context": 0,
+      "timer_duration_seconds": null
+    },
+    {
+      "timestamp": "2024-09-14T22:45:56.849849",
+      "bpm": 84,
+      "context": 2,
+      "timer_duration_seconds": null
+    },
+    {
+      "timestamp": "2024-09-14T22:44:43.849849",
+      "bpm": 67,
+      "context": 1,
+      "timer_duration_seconds": null
+    },
+    {
+      "timestamp": "2024-09-14T22:46:22.849849",
+      "bpm": 79,
+      "context": 2,
+      "timer_duration_seconds": null
+    },
+    {
+      "timestamp": "2024-09-14T22:46:45.849849",
+      "bpm": 64,
+      "context": 0,
+      "timer_duration_seconds": null
+    },
+    {
+      "timestamp": "2024-09-14T22:45:03.849849",
+      "bpm": 70,
+      "context": 1,
+      "timer_duration_seconds": null
+    },
+    {
+      "timestamp": "2024-09-14T22:49:28.849849",
+      "bpm": 78,
+      "context": 2,
+      "timer_duration_seconds": null
+    },
+    {
+      "timestamp": "2024-09-14T22:47:23.849849",
+      "bpm": 69,
+      "context": 0,
+      "timer_duration_seconds": null
+    },
+    {
+      "timestamp": "2024-09-14T22:47:55.849849",
+      "bpm": 64,
+      "context": 0,
+      "timer_duration_seconds": null
+    },
+    {
+      "timestamp": "2024-09-14T22:45:21.849849",
+      "bpm": 75,
+      "context": 1,
+      "timer_duration_seconds": null
+    },
+    {
+      "timestamp": "2024-09-14T22:48:19.849849",
+      "bpm": 71,
+      "context": 0,
+      "timer_duration_seconds": null
+    },
+    {
+      "timestamp": "2024-09-14T22:46:01.849849",
+      "bpm": 73,
+      "context": 1,
+      "timer_duration_seconds": null
+    },
+    {
+      "timestamp": "2024-09-14T22:45:42.849849",
+      "bpm": 72,
+      "context": 1,
+      "timer_duration_seconds": null
+    },
+    {
+      "timestamp": "2024-09-14T22:46:17.849849",
+      "bpm": 77,
+      "context": 2,
+      "timer_duration_seconds": null
+    },
+    {
+      "timestamp": "2024-09-14T22:45:50.849849",
+      "bpm": 87,
+      "context": 2,
+      "timer_duration_seconds": null
+    },
+    {
+      "timestamp": "2024-09-14T22:48:05.849849",
+      "bpm": 62,
+      "context": 0,
+      "timer_duration_seconds": null
+    },
+    {
+      "timestamp": "2024-09-14T22:47:29.849849",
+      "bpm": 72,
+      "context": 1,
+      "timer_duration_seconds": null
+    },
+    {
+      "timestamp": "2024-09-14T22:49:45.849849",
+      "bpm": 92,
+      "context": 2,
+      "timer_duration_seconds": null
+    },
+    {
+      "timestamp": "2024-09-14T22:48:44.849849",
+      "bpm": 63,
+      "context": 0,
+      "timer_duration_seconds": null
+    },
+    {
+      "timestamp": "2024-09-14T22:48:15.849849",
+      "bpm": 74,
+      "context": 1,
+      "timer_duration_seconds": null
+    },
+    {
+      "timestamp": "2024-09-14T22:49:13.849849",
+      "bpm": 81,
+      "context": 2,
+      "timer_duration_seconds": null
+    },
+    {
+      "timestamp": "2024-09-14T22:47:11.849849",
+      "bpm": 71,
+      "context": 1,
+      "timer_duration_seconds": null
+    },
+    {
+      "timestamp": "2024-09-14T22:46:54.849849",
+      "bpm": 79,
+      "context": 2,
+      "timer_duration_seconds": null
+    },
+    {
+      "timestamp": "2024-09-14T22:50:05.849849",
+      "bpm": 89,
+      "context": 2,
+      "timer_duration_seconds": null
+    },
+    {
+      "timestamp": "2024-09-14T22:50:19.849849",
+      "bpm": 83,
+      "context": 2,
+      "timer_duration_seconds": null
+    },
+    {
+      "timestamp": "2024-09-14T22:49:32.849849",
+      "bpm": 67,
+      "context": 1,
+      "timer_duration_seconds": null
+    },
+    {
+      "timestamp": "2024-09-14T22:50:41.849849",
+      "bpm": 65,
+      "context": 1,
+      "timer_duration_seconds": null
+    },
+    {
+      "timestamp": "2024-09-14T22:51:01.849849",
+      "bpm": 68,
+      "context": 0,
+      "timer_duration_seconds": null
+    },
+    {
+      "timestamp": "2024-09-14T22:51:22.849849",
+      "bpm": 64,
+      "context": 0,
+      "timer_duration_seconds": null
+    },
+    {
+      "timestamp": "2024-09-14T22:51:47.849849",
+      "bpm": 80,
+      "context": 1,
+      "timer_duration_seconds": null
+    },
+    {
+      "timestamp": "2024-09-14T22:51:59.849849",
+      "bpm": 72,
+      "context": 1,
+      "timer_duration_seconds": null
+    },
+    {
+      "timestamp": "2024-09-14T22:52:14.849849",
+      "bpm": 77,
+      "context": 1,
+      "timer_duration_seconds": null
+    },
+    {
+      "timestamp": "2024-09-14T22:52:37.849849",
+      "bpm": 85,
+      "context": 2,
+      "timer_duration_seconds": null
+    },
+    {
+      "timestamp": "2024-09-14T22:52:58.849849",
+      "bpm": 69,
+      "context": 0,
+      "timer_duration_seconds": null
+    },
+    {
+      "timestamp": "2024-09-14T22:53:14.849849",
+      "bpm": 75,
+      "context": 1,
+      "timer_duration_seconds": null
+    },
+    {
+      "timestamp": "2024-09-14T22:53:31.849849",
+      "bpm": 82,
+      "context": 2,
+      "timer_duration_seconds": null
+    },
+    {
+      "timestamp": "2024-09-14T22:53:49.849849",
+      "bpm": 70,
+      "context": 1,
+      "timer_duration_seconds": null
+    }
+  ]
+  
