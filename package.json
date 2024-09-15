@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "@tryterra/terra-ui": "^0.2.0"
+    "@tryterra/terra-ui": "^0.2.0",
+    "convex": "^1.16.0"
   }
 }
