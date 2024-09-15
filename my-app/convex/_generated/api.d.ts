@@ -17,7 +17,9 @@ import type {
 } from "convex/server";
 import type * as http from "../http.js";
 import type * as myHttpActions from "../myHttpActions.js";
+import type * as sensorData from "../sensorData.js";
 import type * as storeData from "../storeData.js";
+import type * as storeHeartBeat from "../storeHeartBeat.js";
 
 /**
  * A utility for referencing Convex functions in your app's API.
@@ -30,7 +32,9 @@ import type * as storeData from "../storeData.js";
 declare const fullApi: ApiFromModules<{
   http: typeof http;
   myHttpActions: typeof myHttpActions;
+  sensorData: typeof sensorData;
   storeData: typeof storeData;
+  storeHeartBeat: typeof storeHeartBeat;
 }>;
 export declare const api: FilterApi<
   typeof fullApi,

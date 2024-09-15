@@ -1,0 +1,4 @@
+{
+    "queries": "convex/getData.js",
+    "mutations": "convex/mutations.js"
+  }

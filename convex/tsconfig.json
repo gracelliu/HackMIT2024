@@ -20,6 +20,6 @@
     "isolatedModules": true,
     "noEmit": true
   },
-  "include": ["./**/*"],
+  "include": ["./**/*", "../my-app/convex/sensorData.js"],
   "exclude": ["./_generated"]
 }
