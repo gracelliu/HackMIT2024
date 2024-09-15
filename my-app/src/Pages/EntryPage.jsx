@@ -12,7 +12,7 @@ function EntryPage() {
         {/* <SideBar></SideBar> */}
 
         <img style={{ marginTop: '20px', height: '30px', justifySelf: 'center', alignSelf: 'center' }} src="src/assets/smiley.png" />
-        <div style={{ marginTop: '20px', color: '#58315A', fontFamily: 'sans-serif', fontSize: '30pt', marginLeft: '20px' }}>StressLess</div>
+        <div style={{ marginTop: '20px', color: '#58315A', fontFamily: 'sans-serif', fontSize: '30pt', marginLeft: '20px' }}>Anxy</div>
       </div>
 
       <h3 style={{ color: '#58315A', justifySelf: "start" }}>
