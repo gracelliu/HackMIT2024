@@ -1,7 +1,5 @@
 import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom'; // Import Routes and Route
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
 import ErrorBoundary from './ErrorBoundary.jsx';
 import EntryPage from './Pages/EntryPage.jsx';
 import Live from './Pages/Live.jsx';

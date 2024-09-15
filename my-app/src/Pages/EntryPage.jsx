@@ -1,11 +1,31 @@
 // src/pages/EntryPage.jsx
-import React, { useState } from "react";
-
+import React, { useState, useEffect } from "react";
+import axios from 'axios';
 import MyLineChart from "../assets/MyLineChart";
+
 
 function EntryPage() {
 
-  const [stress, setStress] = useState(0)
+
+  const [stress, setStress] = useState()
+  const [message, setMessage] = useState('');
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('http://localhost:3000/events');
+        setStress(response);
+        const data = await response.json();
+        setStress(data.stressIndex);
+        setMessage(data.message);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <div style={{ display: 'flex', flexDirection: 'column', backgroundColor: '#FFFFFF', borderColor: "#FFFFFF", minHeight: '100vh', width: '100%', margin: '0', justifyContent: 'start' }}>
       <div>
