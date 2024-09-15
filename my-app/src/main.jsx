@@ -14,8 +14,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     {/* Wrap the app in ConvexProvider */}
     <ConvexProvider client={convex}>
-    <HashRouter>
-      <App />
+      <HashRouter>
+        <App />
       </HashRouter>
     </ConvexProvider>
   </React.StrictMode>
