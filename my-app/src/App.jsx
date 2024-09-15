@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom'; // Import Routes and Route
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
@@ -9,6 +9,7 @@ import Chatbot from './Pages/Chatbot.jsx';
 import Calendar from './Pages/Calendar.jsx';
 import BottomBar from './BottomBar.jsx';
 import './App.css';
+
 
 function App() {
   return (
