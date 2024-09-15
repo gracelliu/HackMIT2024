@@ -1,7 +1,7 @@
 import React from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { useQuery } from 'convex/react';  // Use Convex's useQuery hook
-import { api } from "../../../convex/_generated/api";
+// import { api } from "./convex/_generated/api";
 
 const MyLineChart = () => {
   // Use the useQuery hook to fetch data from Convex

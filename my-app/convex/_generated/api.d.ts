@@ -15,9 +15,12 @@ import type {
   FilterApi,
   FunctionReference,
 } from "convex/server";
+import type * as getData from "../getData.js";
 import type * as http from "../http.js";
 import type * as myHttpActions from "../myHttpActions.js";
 import type * as storeData from "../storeData.js";
+import type * as storeHeartBeat from "../storeHeartBeat.js";
+import type * as tasks from "../tasks.js";
 
 /**
  * A utility for referencing Convex functions in your app's API.
@@ -28,9 +31,12 @@ import type * as storeData from "../storeData.js";
  * ```
  */
 declare const fullApi: ApiFromModules<{
+  getData: typeof getData;
   http: typeof http;
   myHttpActions: typeof myHttpActions;
   storeData: typeof storeData;
+  storeHeartBeat: typeof storeHeartBeat;
+  tasks: typeof tasks;
 }>;
 export declare const api: FilterApi<
   typeof fullApi,
