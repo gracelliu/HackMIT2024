@@ -10,7 +10,7 @@ const EntryPage = () => {
   const response = useQuery(api.tasks.get);
   console.log(response);
 
-  const data = response?.[response.length-1]?.accel;
+  const data = response?.[response.length-1]?.accel*response?.[response.length-1]?.gyro;
 
   useEffect(() => {
     setStress((data ?? 0).toFixed(2));
@@ -21,7 +21,7 @@ const EntryPage = () => {
       <div style={{ alignSelf: 'center', justifyContent: 'center', display: 'flex', flexDirection: 'row' }}>
         {/* <SideBar></SideBar> */}
         <img style={{ marginTop: '20px', height: '30px', justifySelf: 'center', alignSelf: 'center' }} src="src/assets/smiley.png" />
-        <div style={{ marginTop: '20px', color: '#58315A', fontFamily: 'sans-serif', fontSize: '30pt', marginLeft: '20px' }}>Anxy</div>
+        <div style={{ marginTop: '20px', color: '#58315A', fontFamily: 'sans-serif', fontSize: '30pt', marginLeft: '20px' }}>Axy</div>
       </div>
 
       <h3 style={{ color: '#58315A', justifySelf: "start" }}>
